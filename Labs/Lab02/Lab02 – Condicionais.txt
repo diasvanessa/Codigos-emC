@@ -1,0 +1,370 @@
+1. Faça um programa que receba dois números e mostre qual deles é o maior.
+
+#include <stdio.h>
+
+int main(){
+    float x,y;
+    printf("Digite dois numeros:\n"); 
+    scanf("%f %f", &x,&y); 
+
+    if(x > y){
+        printf("%f eh o maior numero\n", x);
+    } else if(x < y){
+        printf("%f eh o maior numero\n", y);
+    } else {
+        printf("%.2f eh igual a %.2f", x,y);
+    }
+    return 0;
+}
+
+
+2. Leia um número fornecido pelo usuário. Se esse número for positivo, calcule a raiz quadrada
+do número. Se o número for negativo, mostre uma mensagem dizendo que o número é inválido.
+
+#include <stdio.h>
+
+int main(){
+    float x;
+    printf("x = ");
+    scanf("%f", &x);
+
+    if(x > 0){
+        printf("o quadrado de %.2f eh %.2f\n", x, x*x);
+    } else
+        printf("numero invalido\n");
+    return 0;
+}
+
+
+3. Leia um número real. Se o número for positivo imprima a raiz quadrada. Do contrário, imprima
+o número ao quadrado.
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    float x;
+    printf("x = ");
+    scanf("%f", &x);
+
+    if(x > 0){
+        printf("A raiz quadrada de %.2f eh: %.2f", x, sqrt(x));
+    } else if(x < 0){
+        printf("%.2f ao quadrado eh: %.2f\n", x, pow(x,2));
+    }
+    return 0;
+}
+
+4. Faça um programa que leia um número e, caso ele seja positivo, calcule e mostre:
+- O número digitado ao quadrado
+- A raiz quadrada do número digitado
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    float x;
+    printf("x = ");
+    scanf("%f", &x);
+
+    if(x > 0){
+        printf("O quadrado de %.2f eh: %.2f\n", x, pow(x,2));
+        printf("A raiz quadrada de %.2f eh: %.2f\n", x, sqrt(x));
+    } else {
+        printf("Digite um numero valido!\n");
+    }
+    return 0;
+}
+
+5. Faça um programa que receba um número inteiro e verifique se este número é par ou ímpar.
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    int x,y;
+    printf("x = ");
+    scanf("%d", &x);
+
+    y = x % 2;
+
+    if(y == 0){
+        printf("%d eh par", x);
+    } else {
+        printf("%d eh impar", x);
+    }
+    return 0;
+}
+
+6. Escreva um programa que, dados dois números inteiros, mostre na tela o maior deles, assim
+como a diferença existente entre ambos
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    int x,y;
+    printf("Digite dois numeros inteiros:\n");
+    scanf("%d %d", &x, &y);
+
+    if(x > y){
+        printf("%d eh o maior numero\n", x);
+        printf("x - y = %d\n", x-y);
+    } else if(x < y){
+        printf("%d eh o maior numero\n", y);
+        printf("y - x = %d\n", y-x);
+    } else {
+        printf("%d eh igual a %d", x,y);
+    }
+    return 0;
+}
+
+7. Faça um programa que receba dois números e mostre o maior. Se por acaso, os dois números
+forem iguais, imprima a mensagem: “Números iguais”
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    int x,y;
+    printf("Digite dois numeros inteiros:\n");
+    scanf("%d %d", &x, &y);
+
+    if(x > y){
+        printf("%d eh maior que %d\n", x,y);
+    } else if(x < y){
+        printf("%d eh o maior que %d\n", y,x);
+    } else {
+        printf("%d eh igual a %d", x,y);
+    }
+    return 0;
+}
+
+
+8. Faça um programa que leia 2 notas de um aluno, verifique se as notas são válidas e exiba na
+tela a média destas notas. Uma nota válida deve ser, obrigatoriamente, um valor entre 0.0 e
+10.0, onde caso a nota não possua um valor válido, este fato deve ser informado ao usuário e o
+programa termina.
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    float Nota_1, Nota_2,Media;
+    printf("Digite as duas notas do aluno:\n");
+    scanf("%f %f", &Nota_1, &Nota_2);
+    Media = (Nota_1+Nota_2) / 2;
+
+    if ((Nota_1,Nota_2 >= 0) || (Nota_1,Nota_2 <= 10)){
+        printf("A media do aluno foi: %.2f\n", Media);
+    } else {
+        printf("Digite dois numeros validos!\n");
+    }
+    return 0;
+}
+
+
+9. Leia o salário de um trabalhador e o valor da prestação de um empréstimo. Se a prestação for
+maior que 20% do salário imprima: “Empréstimo não concedido”, caso contrário imprima:
+“Empréstimo concedido”
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(){
+    float Salario, Prestacao, Porcentagem_emprestimo; // define as variaveis 
+    printf("Digite o salario:");
+    scanf("%f", &Salario);
+    printf("Digite o valor da prestacao:");
+    scanf("%f", &Prestacao);
+
+    Porcentagem_emprestimo = (20*Salario)/100; // Calcula 20% do salario 
+
+    /* define a condicao para que o emprestimo seja concendido, se a prestacao for maior que 
+    20% do salario, ele nao sera concedido */
+
+    if(Prestacao > Porcentagem_emprestimo){
+        printf("Emprestimo nao concedido!\n");
+    } else{
+        printf("Emprestimo concedido!");
+    }
+    return 0; 
+}
+
+
+10. Faça um programa que receba a altura e o sexo de uma pessoa e calcule e mostre seu peso
+ideal, utilizando as seguintes fórmulas (onde h corresponde à altura):
+- Homens: (72,7 * h) – 58,0
+- Mulheres: (62,1 * h) – 44,7
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(){
+    float Altura, Homem, Mulher; // define as variaveis 
+    char S;
+    printf("Digite o sexo da pessoa (H/M):"); // pede que usuario digite o sexo, especificando os caracteres desejados
+    S = getchar(); // le o caractere digitado pelo usuario 
+    printf("Digite a altura:");
+    scanf("%f", &Altura); // le a altura 
+
+    // operacoes para guardar o calculo a ser efetuado para caso o usuario digite 'M' ou 'H'
+
+    Mulher = (62.1 * Altura) - 44.7;
+    Homem = (72.7 * Altura) - 58.0;
+
+    // condicionais para imprimir de acordo com os valores que o usuario digitou
+
+    if((S == 'H') || (S == 'h')){
+        printf("O seu peso ideal eh:%.0fkg", Homem);
+    } else if((S == 'M') || (S == 'm')){
+        printf("O seu peso ideal eh: %.0fkg", Mulher);
+    } else {
+        printf("Digite um caractere valido!");
+    }
+    return 0; 
+}
+
+
+11. Escreva um programa que leia um número inteiro maior do que zero e devolva, na tela, a
+soma de todos os seus algarismos. Por exemplo, ao número 251 corresponderá o valor 8 (2 + 5
++ 1). Se o número lido não for maior do que zero, o programa terminará com a mensagem:
+“Número inválido”
+
+
+
+
+
+
+12. Ler um número inteiro. Se o número lido for negativo, escreva a mensagem “Número
+inválido”. Se o número for positivo, calcular o logaritmo deste número.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(){
+    float num, logaritmo_natural, logaritmo_base10;
+    printf("Digite um numero positivo:");
+    scanf("%f", &num);
+
+
+    // condicional para calcular o logaritmo do numero, o usuario tem que ter digitado um numero positivo.
+    if (num > 0){
+        logaritmo_natural = log(num);
+        logaritmo_base10 = log10(num);
+        printf("O logaritmo de %.2f eh = %.2f\n", num, logaritmo_natural);
+        printf("O logaritmo de %.2f na base 10 eh = %.2f\n", num, logaritmo_base10);
+    } else {
+        printf("Digite um numero valido!\n");
+    }
+    return 0; 
+}
+
+
+13. Faça um algoritmo que calcule a média ponderada das notas de 3 provas. A primeira e a
+segunda prova têm peso 1 e a terceira tem peso 2. Ao final, mostrar a média do estudante e
+indicar se o estudante foi aprovado ou reprovado. A nota para aprovação deve ser igual ou
+superior a 60 pontos.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(){
+    float nota_1, nota_2, nota_3, media_ponderada; // define as variaveis 
+    printf("Digite as tres notas do aluno:");
+    scanf("%f %f %f", &nota_1, &nota_2, &nota_3); // le as tres notas 
+
+    /* calculo da media ponderada: soma das tres sendo que a nota_3 tem peso dois e divisao
+     da soma das tres pela soma dos pesos */
+
+    media_ponderada = (nota_1 + nota_2 + (nota_3 * 2)) / 4; 
+
+    // imprime se o aluno foi aprovado ou nao dependendo do calculo da media ponderada
+    
+    if(media_ponderada >= 60){
+        printf("Aluno aprovado!\n");
+    } else {
+        printf("Aluno reprovado!\n");
+    }
+    return 0;
+}
+
+
+14. A nota final de um estudante é calculada a partir de três notas atribuídas entre o intervalo
+de 0 até 10, respectivamente, a um trabalho de laboratório, a uma avaliação semestral e a um
+exame final. A média das três notas mencionadas anteriormente obedece aos pesos: Trabalho
+de Laboratório: 2; Avaliação Semestral: 3; Exame Final: 5. De acordo com o resultado, mostre na
+tela se o aluno está reprovado (média entre 0 e 2,9), de recuperação (entre 3 e 4,9) ou se foi
+aprovado. Faça todas as verificações necessárias.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(){
+    float Trabalho_Lab, Avaliacao_Sem, Ex_final, Media_Notas; // define as variaveis 
+
+    printf("Digite a nota do trabalho de laboratorio:");
+    scanf("%f", &Trabalho_Lab);
+    printf("Digite a nota da avaliacao semestral:");
+    scanf("%f", &Avaliacao_Sem);
+    printf("Digite a nota do exame final:");
+    scanf("%f", &Ex_final);
+
+    /*A media das três notas  obedece aos pesos: Trabalho
+    de Laboratório: 2; Avaliação Semestral: 3; Exame Final: 5.*/
+
+    Media_Notas = ((Trabalho_Lab * 2) + (Avaliacao_Sem * 3) + (Ex_final * 5)) / 10;
+    printf("Media do aluno foi: %.2f\n", Media_Notas);
+
+    /*mostra na tela se o aluno está reprovado (média entre 0 e 2,9), 
+    de recuperação (entre 3 e 4,9) ou se foi aprovado*/
+
+    if(Media_Notas < 2.9){
+        printf("Aluno reprovado!\n");
+    } else if((Media_Notas >= 3) && (Media_Notas <= 4.9)){
+        printf("Aluno de recuperacao!\n");
+    } else {
+        printf("Aluno aprovado!\n");
+    }
+    return 0;
+}
+
+
+
+15. Usando switch, escreva um programa que leia um inteiro entre 1 e 7 e imprima o dia da
+semana correspondente a este número. Isto é, domingo se 1, segunda-feira se 2, e assim por
+diante.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
