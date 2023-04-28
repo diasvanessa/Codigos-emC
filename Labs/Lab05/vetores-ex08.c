@@ -8,12 +8,26 @@ vetor final que foi digitado*/
 #include <stdio.h>
 
 int main(){
-    int vet[10], i;
+    int vet[10], i, j;
 
     for (i = 0; i < 10; i++)
     {
+        printf("Digite o %d valor: ", i);
         scanf("%d", &vet[i]);
+        for(j = 0; j < i; j++)
+        {
+            if(vet[i] == vet[j])
+            {
+                i--;
+                break;
+            }
+        }
     }
-    
 
+    for(i = 0; i < 10; i++)
+    {
+        printf("%4d", vet[i]);
+
+    }
+    return 0;
 }
