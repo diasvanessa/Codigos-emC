@@ -7,7 +7,7 @@ cartela gerada.*/
 #include <stdlib.h>
 
 int main(){
-    int bingo[5][5], i, j;
+    int bingo[5][5], i, j, vet[1], k;
     srand(time(NULL));
 
     // inicializar a matriz bingo com valores aleatorios de 0 a 99
@@ -15,10 +15,26 @@ int main(){
     {
         for (j = 0; j < 5; j++)
         {
-            bingo[i][j] = rand() % 100;
+                bingo[i][j] = rand() % 100;
         }
     }
-    
+
+
+    for(i = 0; i < 5; i++)
+    {
+        for(j = 0; j < 5; j++)
+        {
+            vet[i] = bingo[i][j];
+            for(k = j; k < 4; k++)
+            {
+                if(vet[i] == bingo[i][j+1])
+                {
+                    bingo[i][j+1] = rand() % 100;
+                }
+            }
+        }
+    }
+
      for (i = 0; i < 5; i++)
     {
         for (j = 0; j < 5; j++)
