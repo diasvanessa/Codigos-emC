@@ -20,11 +20,15 @@ int main(){
     }
 
 
+    // matriz para verificar se foram gerados numeros aleatorios repetidos, caso tenha sido, esse numero sera trocado
     for(i = 0; i < 5; i++)
     {
         for(j = 0; j < 5; j++)
         {
+            // guarda o valor da matriz em um vetor
             vet[i] = bingo[i][j];
+
+            // laco para verificar se há numeros repetidos
             for(k = j; k < 4; k++)
             {
                 if(vet[i] == bingo[i][j+1])
@@ -35,6 +39,7 @@ int main(){
         }
     }
 
+    // imprime a cartela de bingo
      for (i = 0; i < 5; i++)
     {
         for (j = 0; j < 5; j++)

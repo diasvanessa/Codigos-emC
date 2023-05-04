@@ -5,7 +5,7 @@ acima da diagonal principal. Imprima a matriz original e a matriz transformada.*
 #include <stdio.h>
 
 int main(){
-    int mat[4][4], i, j, min = 1, max = 20;
+    int mat[4][4], i, j, min = 1, max = 20, k;
 
     // inicia a matriz com valores de 1 a 20 escolhidos pelo usuario
     for (i = 0; i < 4; i++)
@@ -33,15 +33,26 @@ int main(){
     }
 
     // imprime a matriz como um triangulo inferior
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            if (j >= i+1)
+            {
+                mat[i][j] = 0;
+            }
+        }
+    }
+
     printf("Matriz transformada:\n");
     for (i = 0; i < 4; i++)
     {
         for (j = 0; j < 4; j++)
         {
-            
-            
+            printf("%3d", mat[i][j]);
         }
+        printf("\n");
     }
-
+    
     return 0;
 }

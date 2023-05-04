@@ -6,19 +6,22 @@ minúsculas. Dica: some 32 dos caracteres cujo código ASCII está entre 65 e 90
 
 int main(){
     int i, tamanho;
-    char palavra[20];
+    char palavra[100];
 
     // le uma palavra escrita pelo usuario
     printf("Digite uma palavra: ");
-    fgets(palavra, 20, stdin);
+    fgets(palavra, 100, stdin);
 
     // define o tamanho dessa string
     tamanho = strlen(palavra);
 
-    // muda as letras maiscula para minuscula 
+    // muda as letras maiuscula para minuscula 
     for (i = 0; i < tamanho - 1; i++)
     {
-        palavra[i] +=32;
+        if (palavra[i] >= 65 && palavra[i] <= 90)
+        {
+            palavra[i] +=32;
+        }
     }
     
     // imprime a nova palavra com letras minuscula

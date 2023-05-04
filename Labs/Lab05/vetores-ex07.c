@@ -16,18 +16,27 @@ int main(){
         count++;
     }
     
+    printf("Numeros pares:\n");
     for (i = 0; i < 6; i++)
     {
         if (vet[i] % 2 == 0)
         {
-            printf("Numero par:%d\n", vet[i]);
+            printf("%d\n", vet[i]);
             somaPares += vet[i];
         }
-        else{
-            printf("Numero impar:%d\n", vet[i]);
+    }
+
+    printf("Numeros impares:\n");
+    for (i = 0; i < 6; i++)
+    {
+        if (vet[i] % 2 != 0)
+        {
+            printf("%d\n", vet[i]);
             quantIm +=1;
         }
+        
     }
+    
     printf("A soma dos valores pares eh = %d\n", somaPares);
     printf("A quantidade de numeros impares eh = %d\n", quantIm);
     return 0;

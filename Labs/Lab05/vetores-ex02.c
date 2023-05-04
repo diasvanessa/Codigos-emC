@@ -17,7 +17,7 @@ int main(){
     }
     
     // pede para que usuario escolha duas posicoes para somar os numeros que estao guardados nessas posicoes
-    printf("Digite dois numeros entre 0 e 8: ");
+    printf("Digite dois numeros entre 0 e 7: ");
     scanf("%d %d", &num1, &num2);
     soma = vet[num1] + vet[num2];
     printf("A soma dos dois numeros de posicao %d e %d eh = %d", num1, num2, soma);

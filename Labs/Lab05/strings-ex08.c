@@ -30,7 +30,6 @@ int main(){
         {
             str[i] = letra2;
         }
-        
     }
     
     // imprime a nova string

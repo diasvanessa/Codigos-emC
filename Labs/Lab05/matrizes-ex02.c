@@ -31,7 +31,7 @@ int main(){
     {
         for (j = 0; j < 5; j++)
         {
-            printf("%d", mat[i][j]);
+            printf("%4d", mat[i][j]);
         }
         printf("\n");
     }

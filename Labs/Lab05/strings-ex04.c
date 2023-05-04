@@ -25,7 +25,6 @@ int main(){
             quant_vogais+= 1;
             palavra[i] = 'v';
         }
-        
     }
     
     // imprime quantas vogais essa palavra tinha e a nova palavra com as vogais substituida
