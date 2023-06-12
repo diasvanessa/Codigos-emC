@@ -26,5 +26,6 @@ int main(){
         printf("%5d", *(p+i));
     }
 
+    free(p);
     return 0;
 }
