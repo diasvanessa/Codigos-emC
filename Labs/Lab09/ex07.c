@@ -65,7 +65,6 @@ int main(){
         printf("%d", *(num_correto+i));
     }
     
-
     free(num_correto);
     return 0;
 }
