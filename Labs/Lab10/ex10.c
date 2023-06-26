@@ -10,10 +10,20 @@ de habitantes.
 #include <string.h>
 #include <stdlib.h>
 
+struct cidades{
+    char nome[40];
+    int hab;
+};
+
+typedef struct cidades cidades;
+
 int main(){
     FILE *f1, *f2;
-    char nomearq1[20], nomearq2[20], c;
-    int tamanho;
+    char nomearq1[20], nomearq2[20];
+    int tamanho, i, hab, posicao;
+    cidades *c;
+
+    c = (cidades *) malloc(4*sizeof(cidades));
 
     printf("Digite o nome do arquivo 1: ");
     fgets(nomearq1, 20, stdin);
@@ -32,13 +42,33 @@ int main(){
         nomearq2[tamanho-1] = '\0';
     }
     f1 = fopen(nomearq1, "r");
-    f2 = fopen(nomearq2, "r");
+    f2 = fopen(nomearq2, "w");
     if (f1 == NULL || f2 == NULL)
     {
         printf("Erro ao abrir arquivo!");
         exit(1);
     }
     
+    for (i = 0; i < 4; i++)
+    {
+        fscanf(f1, "%[^,]%*c", c[i].nome);
+        fscanf(f1, "%d", &c[i].hab);
+    }
+    
+    hab = c[0].hab;
+    for (i = 1; i < 4; i++)
+    {
+        if (c[i].hab > hab)
+        {
+            hab = c[i].hab;
+            posicao = i;
+        }   
+    }
+    
+    fprintf(f2, "Cidade mais populosa:%s\nHabitantes: %d", c[posicao].nome, hab);
 
+    fclose(f1);
+    fclose(f2);
+    free(c);
     return 0;
 }
